@@ -1,12 +1,12 @@
 const personForm = document.querySelector('form')
 
-const renderName = (personName) => {
+function renderName(personName){
     const nameItem = document.createElement('li')
     nameItem.textContent = 'Name: ' + personName
     return nameItem
 }
 
-const drawColor = (hairColor) => {
+function drawColor(hairColor){
   const colorDiv = document.createElement('div')
   colorDiv.style.backgroundColor = hairColor
   colorDiv.style.height = '50px'
@@ -14,7 +14,7 @@ const drawColor = (hairColor) => {
   return colorDiv
 }
 
-const renderColor = (hairColor) => {
+function renderColor(hairColor){
     const colorItem = document.createElement('li')
     const colorDiv = drawColor(hairColor)
     colorItem.textContent = 'Hair Color: '
@@ -22,13 +22,13 @@ const renderColor = (hairColor) => {
     return colorItem
 }
 
-const renderAge = (age) => {
+function renderAge(age){
     const ageItem = document.createElement('li')
     ageItem.textContent = 'Age: ' + age
     return ageItem
 }
 
-const renderBirthplace = (birthplace) => {
+function renderBirthplace(birthplace){
     const birthplaceItem = document.createElement('li')
     birthplaceItem.textContent = 'Birthplace: ' + birthplace
     return birthplaceItem
