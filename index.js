@@ -1,11 +1,37 @@
 const personForm = document.querySelector('form')
 
+const renderName = (personName) => {
+    const nameItem = document.createElement('li')
+    nameItem.textContent = 'Name: ' + personName
+    return nameItem
+}
+
+const drawColor = (hairColor) => {
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = hairColor
+  colorDiv.style.height = '50px'
+  colorDiv.style.width = '100px'
+  return colorDiv
+}
+
 const renderColor = (hairColor) => {
-    const colorDiv = document.createElement('div')
-    colorDiv.style.backgroundColor = hairColor
-    colorDiv.style.height = '50px'
-    colorDiv.style.width = '100px'
-    return colorDiv
+    const colorItem = document.createElement('li')
+    const colorDiv = drawColor(hairColor)
+    colorItem.textContent = 'Hair Color: '
+    colorItem.appendChild(colorDiv)
+    return colorItem
+}
+
+const renderAge = (age) => {
+    const ageItem = document.createElement('li')
+    ageItem.textContent = 'Age: ' + age
+    return ageItem
+}
+
+const renderBirthplace = (birthplace) => {
+    const birthplaceItem = document.createElement('li')
+    birthplaceItem.textContent = 'Birthplace: ' + birthplace
+    return birthplaceItem
 }
 
 const handleSubmit = (ev) => {
@@ -18,16 +44,19 @@ const handleSubmit = (ev) => {
     const age = form.age.value
     const birthplace = form.birthplace.value
 
-    const colorDiv = renderColor(hairColor)
+    const nameItem = renderName(personName)
+    const colorItem = renderColor(hairColor)
+    const ageItem = renderAge(age)
+    const birthplaceItem = renderBirthplace(birthplace)
 
-     details.innerHTML = `
-    <ul>
-      <li>Name: ${personName}</li>
-      <li>Hair Color: ${colorDiv.outerHTML}</li>
-      <li>Age: ${age}</li>
-      <li>Birthplace: ${birthplace}</li>
-    </ul>
-    `
+    const list = document.createElement('ul')
+
+     list.appendChild(nameItem)
+     list.appendChild(colorItem)
+     list.appendChild(ageItem)
+     list.appendChild(birthplaceItem)
+
+     details.appendChild(list)
 }
 
 personForm.addEventListener('submit', handleSubmit)
